@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_DB=my_store
+      - POSTGRES_USER=nico
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - 5432:5432
+
+    volumes:
+      - ./.cache/postgres_data:/var/lib/postgress/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - 5050:80
